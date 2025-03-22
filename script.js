@@ -30,6 +30,22 @@ function bookAppointment() {
 function callNumber() {
   window.location.href = "tel:+919876543221";
 }
+// JavaScript functions for button actions
+function sendInquiry() {
+  alert("Inquiry form will open.");
+}
+
+function openWhatsapp() {
+  window.location.href = "https://wa.me/919825081806";
+}
+
+function bookAppointment() {
+  alert("Appointment booking page will open.");
+}
+
+function callNow() {
+  window.location.href = "tel:+919825081806";
+}
 
 // Footer......//
 document.querySelector(".whatsapp").addEventListener("click", () => {

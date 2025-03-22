@@ -58,7 +58,7 @@ ul li {
   background: #005f73;
 }
 
-/* body {
+body2 {
   background: #f0f9eb;
   color: #333;
   line-height: 1.6;
@@ -67,7 +67,7 @@ ul li {
   justify-content: center;
   align-items: center;
   padding: 20px;
-} */
+}
 
 /* Container */
 .container {
@@ -166,6 +166,70 @@ button:hover {
 @media (max-width: 768px) {
   .buttons {
     grid-template-columns: 1fr;
+  }
+}
+
+body3 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f0f9eb;
+  padding: 20px;
+}
+
+/* Container */
+.container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* Contact Option */
+.contact-option {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact-option:hover {
+  background: #e0f7fa;
+  transform: scale(1.02);
+}
+
+.contact-option img {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.contact-option span {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-option {
+    padding: 12px 15px;
+  }
+
+  .contact-option img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-option span {
+    font-size: 16px;
   }
 }
 
