@@ -58,6 +58,117 @@ ul li {
   background: #005f73;
 }
 
+/* body {
+  background: #f0f9eb;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+} */
+
+/* Container */
+.container {
+  background: #fff;
+  max-width: 900px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 22px;
+  color: #2e7d32;
+}
+
+h4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+/* Branch Info */
+.branch-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.map-link {
+  display: inline-block;
+  margin: 10px 0;
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+/* Customer Care */
+.customer-care a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.customer-care a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.all-branches-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.all-branches-btn:hover {
+  background: #45a049;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #256d27;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
 // Footer ///
 footer {
   background: #fff;

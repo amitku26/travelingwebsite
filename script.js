@@ -1,4 +1,19 @@
-// JavaScript for Flamingo Transworld Website
+// JavaScript functions for button actions
+function sendInquiry() {
+  alert("Inquiry form will open.");
+}
+
+function openWhatsapp() {
+  window.location.href = "https://wa.me/919825081806";
+}
+
+function bookAppointment() {
+  alert("Appointment booking page will open.");
+}
+
+function callNow() {
+  window.location.href = "tel:+919825081806";
+}
 
 function sendInquiry() {
   alert("Inquiry form coming soon!");
