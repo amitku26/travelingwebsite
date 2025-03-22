@@ -1,3 +1,21 @@
+document
+  .getElementById("subscribe-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const emailInput = document.getElementById("email");
+    const messageDiv = document.getElementById("message");
+
+    if (emailInput.value) {
+      messageDiv.textContent = "Thank you for subscribing!";
+      messageDiv.style.color = "green";
+      emailInput.value = "";
+    } else {
+      messageDiv.textContent = "Please enter a valid email address.";
+      messageDiv.style.color = "red";
+    }
+  });
+
 // JavaScript functions for button actions
 function sendInquiry() {
   alert("Inquiry form will open.");
