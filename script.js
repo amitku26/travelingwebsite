@@ -1,71 +1,138 @@
-document
-  .getElementById("subscribe-form")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
+function toggleMenu() {
+  const navLinks = document.querySelector(".nav-links");
+  navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+}
 
-    const emailInput = document.getElementById("email");
-    const messageDiv = document.getElementById("message");
+// Close the menu when clicking outside
+document.addEventListener("click", (event) => {
+  const navLinks = document.querySelector(".nav-links");
+  const menuIcon = document.querySelector(".mobile-menu-icon");
 
-    if (emailInput.value) {
-      messageDiv.textContent = "Thank you for subscribing!";
-      messageDiv.style.color = "green";
-      emailInput.value = "";
-    } else {
-      messageDiv.textContent = "Please enter a valid email address.";
-      messageDiv.style.color = "red";
+  if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
+    navLinks.style.display = "none";
+  }
+});
+
+// Select slider elements
+document.addEventListener("DOMContentLoaded", function () {
+  const sliders = document.querySelectorAll(".slider-container");
+
+  sliders.forEach((sliderContainer) => {
+    let index = 0; // Store index for each slider
+
+    const slides = sliderContainer.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const leftBtn = sliderContainer.querySelector(".slider-btn.left");
+    const rightBtn = sliderContainer.querySelector(".slider-btn.right");
+
+    function updateSlider() {
+      slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(${(i - index) * 100}%)`;
+      });
     }
+
+    leftBtn.addEventListener("click", function () {
+      index = (index - 1 + totalSlides) % totalSlides; // Move left
+      updateSlider();
+    });
+
+    rightBtn.addEventListener("click", function () {
+      index = (index + 1) % totalSlides; // Move right
+      updateSlider();
+    });
+
+    updateSlider(); // Initialize positions
+  });
+});
+
+let slideIndex = 0;
+let autoSlideInterval;
+
+function showSlides(n) {
+  const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll(".dot");
+
+  if (n >= slides.length) slideIndex = 0;
+  if (n < 0) slideIndex = slides.length - 1;
+
+  slides.forEach((slide) => slide.classList.remove("active"));
+  dots.forEach((dot) => dot.classList.remove("active"));
+
+  slides[slideIndex].classList.add("active");
+  dots[slideIndex].classList.add("active");
+}
+
+function nextSlide() {
+  showSlides((slideIndex += 1));
+}
+
+function prevSlide() {
+  showSlinkslideIndex -= 1;
+}
+
+function createDots() {
+  const dotsContainer = document.querySelector(".dots-container");
+  const slides = document.querySelectorAll(".slide");
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dot.addEventListener("click", () => {
+      slideIndex = index;
+      showSlides(slideIndex);
+      resetAutoSlide();
+    });
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, 5000);
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+// Initialize slider
+document.addEventListener("DOMContentLoaded", () => {
+  createDots();
+  showSlides(slideIndex);
+  startAutoSlide();
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    prevSlide();
+    resetAutoSlide();
   });
 
-// JavaScript functions for button actions
-function sendInquiry() {
-  alert("Inquiry form will open.");
-}
+  document.querySelector(".next").addEventListener("click", () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+});
 
-function openWhatsapp() {
-  window.location.href = "https://wa.me/919825081806";
-}
+const slider = document.querySelector(".happy-traveller-slides");
+const prevButton = document.querySelector(".prev");
+const nextButton = document.querySelector(".next");
 
-function bookAppointment() {
-  alert("Appointment booking page will open.");
-}
+nextButton.addEventListener("click", () => {
+  const cardWidth = document.querySelector(".happy-traveller-card").offsetWidth;
+  slider.scrollBy({
+    left: cardWidth + 20,
+    behavior: "smooth",
+  });
+});
 
-function callNow() {
-  window.location.href = "tel:+919825081806";
-}
+prevButton.addEventListener("click", () => {
+  const cardWidth = document.querySelector(".happy-traveller-card").offsetWidth;
+  slider.scrollBy({
+    left: -(cardWidth + 20),
+    behavior: "smooth",
+  });
+});
 
-function sendInquiry() {
-  alert("Inquiry form coming soon!");
-}
-
-function openWhatsApp() {
-  window.location.href = "https://wa.me/919825081806";
-}
-
-function bookAppointment() {
-  alert("Booking appointment feature coming soon!");
-}
-
-function callNumber() {
-  window.location.href = "tel:+919876543221";
-}
-// JavaScript functions for button actions
-function sendInquiry() {
-  alert("Inquiry form will open.");
-}
-
-function openWhatsapp() {
-  window.location.href = "https://wa.me/919825081806";
-}
-
-function bookAppointment() {
-  alert("Appointment booking page will open.");
-}
-
-function callNow() {
-  window.location.href = "tel:+919825081806";
-}
-
-// Footer......//
-document.querySelector(".whatsapp").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+// Handle window resize
+window.addEventListener("resize", () => {
+  slider.scrollLeft = 0;
 });
